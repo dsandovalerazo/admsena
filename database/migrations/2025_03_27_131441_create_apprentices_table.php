@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('cell number');
 
             $table->unsignedBigInteger('course_id')->nullable();
             $table->unsignedBigInteger('computer_id')->nullable();
@@ -26,7 +27,7 @@ return new class extends Migration
             $table->foreign('computer_id')
             ->references('id')
             ->on('computers')->onDelete('set null');
-            
+
             $table->timestamps();
         });
     }
